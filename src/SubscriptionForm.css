@@ -1,0 +1,35 @@
+.subscriptionForm {
+  min-width: 100%;
+}
+
+.subscriptionForm form {
+  height: 250px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+}
+
+.subscriptionForm .element {
+  height: 58px;
+  border: 1px solid #d8d8d8;
+  width: 60%;
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 0 20px;
+}
+
+.subscriptionForm label.element {
+  font-size: 7px;
+  display: flex;
+  flex-direction: row;
+  border: none;
+}
+.subscriptionForm label.element input {
+  margin-right: 20px;
+}
+.subscriptionForm label.element p {
+  margin-top: 3px;
+}
