@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import NewsLetters from './NewsLetters'
+import NewsLettersModal from './NewsLettersModal'
 
 ReactDOM.render(
   <React.StrictMode>
-    <NewsLetters />
+    <NewsLettersModal />
   </React.StrictMode>,
   document.getElementById('root')
 )

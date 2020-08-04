@@ -2,7 +2,7 @@ import React from 'react'
 
 function FormSuccess({ error }) {
   return (
-    <div className="formSuccess">
+    <div style={{ flex: '1' }} className="formSuccess">
       <h2>
         {!error
           ? `Your subscriptions are on their way!`

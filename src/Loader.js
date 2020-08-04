@@ -12,15 +12,10 @@ function Loader() {
   return (
     <div
       style={{
-        position: 'absolute',
-        minWidth: '100%',
-        minHeight: '100%',
-        background: 'white',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: '10px',
       }}
       className="loader">
       {dots.map((_, idx) => (
@@ -32,7 +27,7 @@ function Loader() {
             width: '10px',
             height: '10px',
             borderRadius: '10px',
-            margin: '10px',
+            margin: '5px',
           }}
           key={idx}
         />

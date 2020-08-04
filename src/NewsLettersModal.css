@@ -1,4 +1,4 @@
-.newsLetters {
+.modalUnderlay {
   align-items: center;
   background: transparent;
   display: flex;
@@ -7,19 +7,20 @@
   width: 100vw;
 }
 
-.newsLetters .modal {
+.modalUnderlay .modal {
   align-items: center;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 85vh;
   justify-content: flex-end;
   margin: 50px;
   max-width: 725px;
   min-width: 250px;
+  min-height: 600px;
   overflow: hidden;
   position: relative;
-  width: 45vw;
+  width: 60vw;
 }

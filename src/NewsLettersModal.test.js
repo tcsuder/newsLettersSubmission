@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import NewsLetters from './NewsLetters'
+import NewsLettersModal from './NewsLettersModal'
 
 test('renders learn react link', () => {
-  const { getByText } = render(<NewsLetters />)
+  const { getByText } = render(<NewsLettersModal />)
   const linkElement = getByText(/learn react/i)
   expect(linkElement).toBeInTheDocument()
 })
