@@ -44,9 +44,7 @@ function App() {
             setMessage={setMessage}
           />
         )}
-        {formCompleted && (
-          <FormSuccess newsLetters={chosenNewsLetters} error={undefined} />
-        )}
+        {formCompleted && <h1>this is a test</h1>}
       </div>
     </div>
   )
