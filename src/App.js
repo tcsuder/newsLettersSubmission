@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SubscriptionForm from './SubscriptionForm'
-import FormSuccess from './FormSuccess'
+// import FormSuccess from './FormSuccess'
 
 import { newsLetters } from './helpers'
 
@@ -9,7 +9,7 @@ import './App.css'
 function App() {
   // form completed and subsequent conditional render could be handled by redirect or app state values instead of local state setting
   const [formCompleted, setFormCompleted] = useState(false)
-  const [chosenNewsLetters, setChosenNewsLetters] = useState({})
+  // const [chosenNewsLetters, setChosenNewsLetters] = useState({})
   // this mesage situation could probably be it's own component... I have used one of these at previous jobs with props for warnings and errors etc.
   const [message, setMessage] = useState(
     "Select all news letters you'd like to recieve"
@@ -37,7 +37,7 @@ function App() {
                 }
                 // this is where we would use a fetch method passed in from a connected parent or a state system...
                 setMessage(`Your subscriptions are on their way!`)
-                setChosenNewsLetters(values.newsLetters)
+                // setChosenNewsLetters(values.newsLetters)
                 setFormCompleted(true)
               }, 2500)
             }}
