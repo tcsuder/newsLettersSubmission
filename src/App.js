@@ -10,6 +10,7 @@ function App() {
   // form completed and subsequent conditional render could be handled by redirect or app state values instead of local state setting
   const [formCompleted, setFormCompleted] = useState(false)
   const [chosenNewsLetters, setChosenNewsLetters] = useState({})
+  // this mesage situation could probably be it's own component... I have used one of these at previous jobs with props for warnings and errors etc.
   const [message, setMessage] = useState(
     "Select all news letters you'd like to recieve"
   )

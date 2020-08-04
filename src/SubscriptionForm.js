@@ -45,7 +45,6 @@ function SubscriptionForm({ newsLetters, subscribe, setMessage }) {
             return setMessage('Please choose at least one subscription.')
           }
           if (values.email === '') {
-            // ideally this message could change style based on failed validation as well...
             return setMessage('Please include an email address.')
           }
           return handleSubmit()
@@ -78,6 +77,7 @@ function SubscriptionForm({ newsLetters, subscribe, setMessage }) {
             placeholder="Enter email"
             onChange={handleChange}
           />
+          {/* this is a situation, in a larger app... where are consistent loading statte should be written into the props and not exclusively read as a child */}
           <button className="buttonShape" type="submit">
             {isSubmitting ? <Loader /> : 'SUBSCRIBE'}
           </button>
