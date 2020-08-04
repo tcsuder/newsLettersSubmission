@@ -22,28 +22,29 @@ function App() {
           <h2>News Letters</h2>
           <p>{message}</p>
         </header>
-        {!formCompleted ? (
+        {!formCompleted && (
           <SubscriptionForm
             newsLetters={newsLetters}
             subscribe={({ values, errors }) => {
-              // finer handling of front end errors would be great here
-              if (Object.keys(errors).length) {
-                setMessage(
-                  `we were unable to complete your request because of the following error: ${
-                    Object.values(errors)[0].message
-                  }`
-                )
-              }
-              // this is where we would use a fetch method passed in from a connected parent or a state system...
-              setMessage(`Your subscriptions are on their way!`)
-              setChosenNewsLetters(values.newsLetters)
-              setFormCompleted(true)
-              // setTimeout(() => {
-              // }, 2500)
+              setTimeout(() => {
+                // finer handling of front end errors would be great here
+                if (Object.keys(errors).length) {
+                  setMessage(
+                    `we were unable to complete your request because of the following error: ${
+                      Object.values(errors)[0].message
+                    }`
+                  )
+                }
+                // this is where we would use a fetch method passed in from a connected parent or a state system...
+                setMessage(`Your subscriptions are on their way!`)
+                setChosenNewsLetters(values.newsLetters)
+                setFormCompleted(true)
+              }, 2500)
             }}
             setMessage={setMessage}
           />
-        ) : (
+        )}
+        {formCompleted && (
           <FormSuccess newsLetters={chosenNewsLetters} error={undefined} />
         )}
       </div>
