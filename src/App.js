@@ -26,12 +26,13 @@ function App() {
           <SubscriptionForm
             newsLetters={newsLetters}
             subscribe={({ values, errors }) => {
-              console.log(values)
               setTimeout(() => {
                 // finer handling of front end errors would be great here
-                if (errors) {
+                if (Object.keys(errors).length) {
                   setMessage(
-                    `we were unable to complete your request because of the following error: ${errors[0]}`
+                    `we were unable to complete your request because of the following error: ${
+                      Object.values(errors)[0].message
+                    }`
                   )
                 }
                 // this is where we would use a fetch method passed in from a connected parent or a state system...
