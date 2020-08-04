@@ -4,7 +4,7 @@ input[type='checkbox']:hover,
   cursor: pointer;
 }
 
-.subscriptionForm {
+.formWrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ input[type='checkbox']:hover,
   min-width: 100%;
 }
 
-.subscriptionForm form {
+.formWrapper form {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -21,7 +21,7 @@ input[type='checkbox']:hover,
   min-width: 100%;
 }
 
-.subscriptionForm .newsLettersScroller {
+.formWrapper .newsLettersScroller {
   border-radius: inherit;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ input[type='checkbox']:hover,
   width: 100%;
 }
 
-.subscriptionForm .contactData {
+.formWrapper .contactData {
   align-items: center;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -46,7 +46,7 @@ input[type='checkbox']:hover,
   padding: 7px;
 }
 
-.subscriptionForm .contactData .buttonShape {
+.formWrapper .contactData .buttonShape {
   border-radius: 5px;
   border: 1px solid #d8d8d8;
   height: 58px;
@@ -55,13 +55,13 @@ input[type='checkbox']:hover,
   width: 60%;
 }
 
-.subscriptionForm .contactData label.buttonShape {
+.formWrapper .contactData label.buttonShape {
   border: none;
   display: flex;
   flex-direction: row;
   font-size: 8px;
 }
-.subscriptionForm .contactData label.buttonShape input {
+.formWrapper .contactData label.buttonShape input {
   margin-right: 30px;
 }
 
@@ -76,7 +76,7 @@ input[type='checkbox']:hover,
 }
 
 @media only screen and (max-width: 650px) {
-  .subscriptionForm .contactData .buttonShape {
+  .formWrapper .contactData .buttonShape {
     border-radius: 5px;
     border: 1px solid #d8d8d8;
     height: 58px;
@@ -87,7 +87,7 @@ input[type='checkbox']:hover,
 }
 
 @media only screen and (max-height: 650px) {
-  .subscriptionForm .contactData {
+  .formWrapper .contactData {
     height: 175px;
     max-height: 175px;
     min-width: 100%;

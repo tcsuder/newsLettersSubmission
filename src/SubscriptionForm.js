@@ -3,24 +3,25 @@ import Loader from './Loader'
 import NewsLetter from './NewsLetter'
 import useForm from './useForm'
 
-import { getLettersFromFormValues } from './helpers'
+import {
+  getIndexKeysFromStringKeys,
+  getStringKeysFromIndexKeys,
+} from './helpers'
 
 import './SubscriptionForm.css'
 
 function SubscriptionForm({ newsLetters, subscribe, setMessage }) {
   const initialValues = {
+    ...getStringKeysFromIndexKeys(newsLetters),
     email: '',
     noSolicit: false,
   }
-  Object.keys(newsLetters).forEach(
-    (key) => (initialValues[`letter-${key}`] = false)
-  )
 
   const { handleChange, handleSubmit, isSubmitting, values } = useForm({
     initialValues,
     onSubmit: ({ values, errors }) => {
       // handle normalizing values as close to initial manipulation as possible to contain any wierdness from `letter-${key}` wierdness
-      const letters = getLettersFromFormValues({ newsLetters, values })
+      const letters = getIndexKeysFromStringKeys({ newsLetters, values })
       subscribe({
         values: {
           ...values,
@@ -32,13 +33,12 @@ function SubscriptionForm({ newsLetters, subscribe, setMessage }) {
   })
 
   return (
-    <div className="subscriptionForm">
+    <div className="formWrapper">
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          debugger
           if (
-            Object.keys(getLettersFromFormValues({ newsLetters, values }))
+            Object.keys(getIndexKeysFromStringKeys({ newsLetters, values }))
               .length === 0
           ) {
             // ideally this message could change style based on failed validation as well...

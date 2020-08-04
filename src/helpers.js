@@ -33,10 +33,11 @@ export const newsLetters = {
 
 // if the selection for news letters was done as semantically cleanly as possible it would probably be made of a select/option menu with mutlip selectable options. But because it include UI rich descriptions checkboxes leave these unorganized. We have to do the work ourlselves to get the derivable keys into an array they same way they would be in a simpler menu. Thus, this takes values, and returns values as if the articles were being returned as an array of keys.
 
-export const getLettersFromFormValues = ({ newsLetters, values }) => {
+export const getIndexKeysFromStringKeys = ({ newsLetters, values }) => {
   const letterKeys = Object.keys(values).filter(
     (key) => key.indexOf('letter-') !== -1 && values[key] === true
   )
+  if (!letterKeys.length) return {}
 
   const numberKeys = letterKeys.map((key) =>
     Number.parseInt(key.charAt(key.length - 1))
@@ -51,4 +52,12 @@ export const getLettersFromFormValues = ({ newsLetters, values }) => {
   )
 
   return filteredLetters
+}
+
+export const getStringKeysFromIndexKeys = (newsLetters) => {
+  const keyedObject = {}
+  Object.keys(newsLetters).forEach(
+    (key) => (keyedObject[`letter-${key}`] = undefined)
+  )
+  return keyedObject
 }

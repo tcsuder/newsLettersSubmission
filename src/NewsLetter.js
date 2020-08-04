@@ -13,7 +13,9 @@ function NewsLetter({ handleChange, idx, isSelected, newsLetter, onClick }) {
         <h3>{newsLetter.title}</h3>
         <p>{newsLetter.text}</p>
       </div>
-      <label htmlFor={`letter-${idx}`} className={isSelected && 'isSelected'}>
+      <label
+        htmlFor={`letter-${idx}`}
+        className={isSelected ? 'isSelected' : ''}>
         {isSelected && <img alt="checkMark" src={checkMark}></img>}
         <input
           id={`letter-${idx}`}
@@ -22,7 +24,7 @@ function NewsLetter({ handleChange, idx, isSelected, newsLetter, onClick }) {
           name={`letter-${idx}`}
           onChange={handleChange}
         />
-        <p>select to recieve this news letter</p>
+        <p>Select to recieve this news letter</p>
       </label>
     </div>
   )

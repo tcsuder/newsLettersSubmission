@@ -25,6 +25,7 @@ function App() {
           <SubscriptionForm
             newsLetters={newsLetters}
             subscribe={({ values, errors }) => {
+              console.log(values)
               setTimeout(() => {
                 // finer handling of front end errors would be great here
                 if (errors) {

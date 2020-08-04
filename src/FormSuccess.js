@@ -4,7 +4,7 @@ import NewsLetter from './NewsLetter'
 function FormSuccess({ newsLetters }) {
   return (
     // this code is somewhat duplicated... ideally NewsLetters would be it's own list component
-    <div style={{ flex: '1' }} className="formSuccess">
+    <div className="formWrapper">
       <div className="newsLettersScroller">
         {Object.keys(newsLetters).map((key) => (
           <NewsLetter
