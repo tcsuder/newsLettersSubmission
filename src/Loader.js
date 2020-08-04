@@ -21,7 +21,7 @@ function Loader() {
       {dots.map((_, idx) => (
         <div
           style={{
-            background: idx === currentDot ? '#d8d8d8' : 'white',
+            background: idx === currentDot ? 'white' : 'transparent',
             border: '1px solid #f3f3f3',
             boxShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
             width: '10px',

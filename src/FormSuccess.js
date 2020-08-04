@@ -1,13 +1,21 @@
 import React from 'react'
+import NewsLetter from './NewsLetter'
 
-function FormSuccess({ error }) {
+function FormSuccess({ newsLetters }) {
   return (
+    // this code is somewhat duplicated... ideally NewsLetters would be it's own list component
     <div style={{ flex: '1' }} className="formSuccess">
-      <h2>
-        {!error
-          ? `Your subscriptions are on their way!`
-          : `we were unable to complete your request because of the following error: ${error.message}`}
-      </h2>
+      <div className="newsLettersScroller">
+        {Object.keys(newsLetters).map((key) => (
+          <NewsLetter
+            key={key}
+            idx={key}
+            newsLetter={newsLetters[key]}
+            handleChange={() => {}}
+            isSelected={true}
+          />
+        ))}
+      </div>
     </div>
   )
 }

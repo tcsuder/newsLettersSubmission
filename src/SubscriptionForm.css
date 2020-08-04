@@ -5,78 +5,61 @@ input[type='checkbox']:hover,
 }
 
 .subscriptionForm {
-  min-width: 100%;
-  height: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
+  height: calc(100% - 166px);
   justify-content: flex-start;
-  align-items: center;
-}
-
-.subscriptionForm header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 40px 0;
-  max-height: 166px;
-  padding: 0 40px;
-}
-
-.subscriptionForm header h2 {
-  margin: 10px 0;
-}
-.subscriptionForm header p {
-  margin: 10px 0;
-  text-align: center;
+  min-width: 100%;
 }
 
 .subscriptionForm form {
-  min-width: 100%;
-  height: calc(100% - 166px);
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: flex-end;
+  min-width: 100%;
 }
 
 .subscriptionForm .newsLettersScroller {
-  width: 100%;
-  height: inherit;
-  overflow: auto;
   border-radius: inherit;
-  scroll-behavior: smooth;
   display: flex;
-  flex: 1 0;
-  justify-self: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
+  flex: 1 0;
+  height: inherit;
+  justify-content: flex-start;
+  justify-self: flex-start;
+  overflow: auto;
+  scroll-behavior: smooth;
+  width: 100%;
 }
 
 .subscriptionForm .contactData {
-  height: 250px;
-  max-height: 250px;
-  min-width: 100%;
-  padding: 7px;
+  align-items: center;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
+  height: 250px;
   justify-content: center;
-  align-items: center;
+  max-height: 250px;
+  min-width: 100%;
+  padding: 7px;
 }
 
 .subscriptionForm .contactData .buttonShape {
-  height: 58px;
-  border: 1px solid #d8d8d8;
-  width: 60%;
   border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  height: 58px;
   margin-top: 15px;
   padding: 0 20px;
+  width: 60%;
 }
 
 .subscriptionForm .contactData label.buttonShape {
-  font-size: 8px;
+  border: none;
   display: flex;
   flex-direction: row;
-  border: none;
+  font-size: 8px;
 }
 .subscriptionForm .contactData label.buttonShape input {
   margin-right: 30px;
@@ -94,12 +77,12 @@ input[type='checkbox']:hover,
 
 @media only screen and (max-width: 650px) {
   .subscriptionForm .contactData .buttonShape {
-    height: 58px;
-    border: 1px solid #d8d8d8;
-    width: 80%;
     border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    height: 58px;
     margin-top: 15px;
     padding: 0 20px;
+    width: 80%;
   }
 }
 

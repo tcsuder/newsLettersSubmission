@@ -24,3 +24,20 @@
   position: relative;
   width: 60vw;
 }
+
+.modalUnderlay header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0;
+  max-height: 166px;
+  padding: 0 40px;
+}
+
+.modalUnderlay header h2 {
+  margin: 10px 0;
+}
+.modalUnderlay header p {
+  margin: 10px 0;
+  text-align: center;
+}

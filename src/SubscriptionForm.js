@@ -3,9 +3,11 @@ import Loader from './Loader'
 import NewsLetter from './NewsLetter'
 import useForm from './useForm'
 
+import { getLettersFromFormValues } from './helpers'
+
 import './SubscriptionForm.css'
 
-function SubscriptionForm({ newsLetters, subscribe }) {
+function SubscriptionForm({ newsLetters, subscribe, setMessage }) {
   const initialValues = {
     email: '',
     noSolicit: false,
@@ -16,22 +18,37 @@ function SubscriptionForm({ newsLetters, subscribe }) {
 
   const { handleChange, handleSubmit, isSubmitting, values } = useForm({
     initialValues,
-    onSubmit: (values) => {
-      console.log({ values })
-      subscribe(values)
+    onSubmit: ({ values, errors }) => {
+      // handle normalizing values as close to initial manipulation as possible to contain any wierdness from `letter-${key}` wierdness
+      const letters = getLettersFromFormValues({ newsLetters, values })
+      subscribe({
+        values: {
+          ...values,
+          newsLetters: letters,
+        },
+        errors,
+      })
     },
   })
 
   return (
     <div className="subscriptionForm">
-      <header>
-        <h2>News Letters</h2>
-        <p>Select all news letters you'd like to recieve</p>
-      </header>
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          handleSubmit()
+          debugger
+          if (
+            Object.keys(getLettersFromFormValues({ newsLetters, values }))
+              .length === 0
+          ) {
+            // ideally this message could change style based on failed validation as well...
+            return setMessage('Please choose at least one subscription.')
+          }
+          if (values.email === '') {
+            // ideally this message could change style based on failed validation as well...
+            return setMessage('Please include an email address.')
+          }
+          return handleSubmit()
         }}>
         <div className="newsLettersScroller">
           {Object.keys(newsLetters).map((key) => (
@@ -40,6 +57,15 @@ function SubscriptionForm({ newsLetters, subscribe }) {
               idx={key}
               newsLetter={newsLetters[key]}
               handleChange={handleChange}
+              onClick={() => {
+                // this is kinda wonky... it synthesizes an event in order to hook into the handleChange method. Since the form is the complex part of this equation I prefer to keep the complexity in one place instead of coding for that in an otherwise simple system
+                handleChange({
+                  target: {
+                    value: !values[`letter-${key}`],
+                    name: `letter-${key}`,
+                  },
+                })
+              }}
               isSelected={values[`letter-${key}`]}
             />
           ))}
@@ -47,7 +73,7 @@ function SubscriptionForm({ newsLetters, subscribe }) {
         <div className="contactData">
           <input
             className="buttonShape"
-            type="text"
+            type="email"
             name="email"
             placeholder="Enter email"
             onChange={handleChange}

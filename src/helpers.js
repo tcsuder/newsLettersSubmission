@@ -1,10 +1,4 @@
-import React, { useState } from 'react'
-import SubscriptionForm from './SubscriptionForm'
-import FormSuccess from './FormSuccess'
-
-import './NewsLettersModal.css'
-
-const newsLetters = {
+export const newsLetters = {
   0: {
     title: 'Reverse The Online Gambling Ban',
     text:
@@ -37,27 +31,24 @@ const newsLetters = {
   },
 }
 
-function NewsLettersModal() {
-  const [formCompleted, setFormCompleted] = useState(false)
+// if the selection for news letters was done as semantically cleanly as possible it would probably be made of a select/option menu with mutlip selectable options. But because it include UI rich descriptions checkboxes leave these unorganized. We have to do the work ourlselves to get the derivable keys into an array they same way they would be in a simpler menu. Thus, this takes values, and returns values as if the articles were being returned as an array of keys.
 
-  return (
-    <div className="modalUnderlay">
-      <div className="modal">
-        {!formCompleted ? (
-          <SubscriptionForm
-            newsLetters={newsLetters}
-            subscribe={(subs) => {
-              setTimeout(() => {
-                setFormCompleted(true)
-              }, 2500)
-            }}
-          />
-        ) : (
-          <FormSuccess error={undefined} />
-        )}
-      </div>
-    </div>
+export const getLettersFromFormValues = ({ newsLetters, values }) => {
+  const letterKeys = Object.keys(values).filter(
+    (key) => key.indexOf('letter-') !== -1 && values[key] === true
   )
-}
 
-export default NewsLettersModal
+  const numberKeys = letterKeys.map((key) =>
+    Number.parseInt(key.charAt(key.length - 1))
+  )
+
+  const filteredLetters = numberKeys.reduce(
+    (acc, key) => ({
+      ...acc,
+      [key]: newsLetters[key],
+    }),
+    {}
+  )
+
+  return filteredLetters
+}

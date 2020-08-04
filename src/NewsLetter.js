@@ -3,9 +3,9 @@ import checkMark from './checkMark.png'
 
 import './NewsLetter.css'
 
-function NewsLetter({ newsLetter, handleChange, idx, isSelected }) {
+function NewsLetter({ handleChange, idx, isSelected, newsLetter, onClick }) {
   return (
-    <div className="newsLetter">
+    <div onClick={onClick} className="newsLetter">
       <div className="image">
         <img src={newsLetter.imageUrl} alt="banner from newsletter" />
       </div>
