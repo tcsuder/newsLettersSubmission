@@ -27,6 +27,7 @@ input[type='checkbox']:hover,
 }
 .subscriptionForm header p {
   margin: 10px 0;
+  text-align: center;
 }
 
 .subscriptionForm form {
@@ -65,7 +66,7 @@ input[type='checkbox']:hover,
 .subscriptionForm .contactData .buttonShape {
   height: 58px;
   border: 1px solid #d8d8d8;
-  width: 50%;
+  width: 60%;
   border-radius: 5px;
   margin-top: 15px;
   padding: 0 20px;
@@ -89,4 +90,24 @@ input[type='checkbox']:hover,
   background: #4292f4;
   color: white;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 650px) {
+  .subscriptionForm .contactData .buttonShape {
+    height: 58px;
+    border: 1px solid #d8d8d8;
+    width: 80%;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .subscriptionForm .contactData {
+    height: 175px;
+    max-height: 175px;
+    min-width: 100%;
+    padding: 0;
+  }
 }
