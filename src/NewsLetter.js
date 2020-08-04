@@ -16,7 +16,7 @@ function NewsLetter({ handleChange, idx, isSelected, newsLetter, onClick }) {
       <label
         htmlFor={`letter-${idx}`}
         className={isSelected ? 'isSelected' : ''}>
-        {isSelected && <img alt="checkMark" src={checkMark}></img>}
+        {isSelected ? <img alt="checkMark" src={checkMark}></img> : null}
         <input
           id={`letter-${idx}`}
           className="hiddenCheckBox"
